@@ -1,0 +1,58 @@
+module.exports = {
+  extends: [
+    'eslint:recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:jsx-a11y/recommended',
+    'prettier',
+  ],
+  plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y', 'react', 'prettier'],
+  env: {
+    node: true,
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
+  rules: {
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'after-used',
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
+    camelcase: [
+      'error',
+      { ignoreDestructuring: true, ignoreImports: true, ignoreGlobals: true, properties: 'never' },
+    ],
+    'default-case-last': 'error',
+    eqeqeq: 'error',
+    'func-names': 'error',
+    'grouped-accessor-pairs': 'error',
+    'new-cap': 'error',
+    'no-alert': 'error',
+    'no-array-constructor': 'error',
+    'no-caller': 'error',
+    'no-extend-native': 'error',
+    'no-extra-bind': 'error',
+    'no-extra-label': 'error',
+    'no-lonely-if': 'error',
+    'no-new-object': 'error',
+    'no-throw-literal': 'error',
+    'no-unneeded-ternary': 'error',
+    'no-use-before-define': ['error', { functions: false, allowNamedExports: true }],
+    'no-useless-computed-key': 'error',
+    'no-useless-rename': 'error',
+    'no-var': 'error',
+    'prefer-const': ['error', { destructuring: 'all' }],
+    'prefer-numeric-literals': 'error',
+    'prefer-promise-reject-errors': 'error',
+    'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+    'prefer-template': 'error',
+    radix: 'error',
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+  },
+};
