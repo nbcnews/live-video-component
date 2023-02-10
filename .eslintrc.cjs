@@ -1,28 +1,22 @@
 module.exports = {
   extends: [
     'eslint:recommended',
-    'plugin:react/jsx-runtime',
+    'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'prettier',
   ],
-  plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y', 'react', 'prettier'],
+  plugins: ['react-hooks', 'jsx-a11y', 'react', 'prettier'],
   env: {
     node: true,
     browser: true,
     es2021: true,
     jest: true,
   },
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2022,
+  },
   rules: {
-    'no-unused-vars': [
-      'error',
-      {
-        args: 'after-used',
-        ignoreRestSiblings: true,
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
     camelcase: [
       'error',
       { ignoreDestructuring: true, ignoreImports: true, ignoreGlobals: true, properties: 'never' },
@@ -42,6 +36,16 @@ module.exports = {
     'no-new-object': 'error',
     'no-throw-literal': 'error',
     'no-unneeded-ternary': 'error',
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'after-used',
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     'no-use-before-define': ['error', { functions: false, allowNamedExports: true }],
     'no-useless-computed-key': 'error',
     'no-useless-rename': 'error',
@@ -54,5 +58,6 @@ module.exports = {
     radix: 'error',
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react/no-children-prop': 'off',
   },
 };
